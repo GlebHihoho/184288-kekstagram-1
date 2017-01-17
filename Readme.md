@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм» [![Build status][travis-image]][travis-url] [![Dependency status][dependency-image]][dependency-url]
 
 * Студент: [Gleb Motuz](https://up.htmlacademy.ru/javascript/8/user/184288).
-* Наставник: `Неизвестно`.
+* Наставник: [no name].
 
 ---
 

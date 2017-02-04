@@ -8,7 +8,7 @@ globals:
   define: true
 
 extends:
-  "htmlacademy/es5"
+  "eslint:recommended"
 
 rules:
   camelcase: [2, { properties: "never" }]

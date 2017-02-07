@@ -74,7 +74,9 @@ uploadFilterControls.addEventListener('keydown', function(event) {
 
 uploadFilterControls.addEventListener('click', function(event) {
   var target = event.target;
-  console.log(target)
+
+  filterImagePreview.removeAttribute('class');
+  filterImagePreview.classList.add('filter-' + target.value);
 });
 
 // Реализем изменение масштаба изображения

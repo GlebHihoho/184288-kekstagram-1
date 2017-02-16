@@ -51,66 +51,12 @@ uploadFormCancel.addEventListener('keydown', function(event) {
   }
 });
 
-//  Реализуем применение фильтров к изображению
+// Подключим модули отвечающие за изменение фильтров и масштаба изображения
 
-var filterImagePreview = document.querySelector('.filter-image-preview');
-var uploadFilterControls = document.querySelector('.upload-filter-controls');
+window.initializeFilters();
 
-uploadFilterControls.addEventListener('keydown', function(event) {
-  var btn = event.target;
-  var idInput = btn.getAttribute('for');
-  var input = document.querySelector('#' + idInput);
+var scaleControls = document.querySelector('.upload-resize-controls');
+var STEP_SCALE_VALUE = 25;        // шаг изменения масштаба изображения
+var DEFAULT_SCALE_VALUE = 50;     // значение масштаба изображения по умолчанию
 
-  if (input.hasAttribute('checked')) {
-    input.removeAttribute('checked');
-  }
-
-  if (event.keyCode === ENTER_KEY_KODE) {
-    input.setAttribute('checked', 'checked');
-    filterImagePreview.removeAttribute('class');
-    filterImagePreview.classList.add('filter-' + input.value);
-  }
-});
-
-uploadFilterControls.addEventListener('click', function(event) {
-  var target = event.target;
-
-  filterImagePreview.removeAttribute('class');
-  filterImagePreview.classList.add('filter-' + target.value);
-});
-
-// Реализем изменение масштаба изображения
-
-var scaleField = document.querySelector('.upload-resize-controls-value');
-var upScaleField = document.querySelector('.upload-resize-controls-button-inc');
-var downScaleField = document.querySelector('.upload-resize-controls-button-dec');
-
-var stepScaleValue = 25;
-var maxScaleValue = 100;
-var minScaleValue = 0;
-var defaultScaleValue = 50;
-
-upScaleField.addEventListener('click', function() {
-  if (parseInt(scaleField.value) >= maxScaleValue) {
-    scaleField.value = maxScaleValue + '%';
-  } else {
-    scaleField.value = parseInt(scaleField.value) + stepScaleValue + '%';
-  }
-});
-
-downScaleField.addEventListener('click', function() {
-  if (parseInt(scaleField.value) <= minScaleValue) {
-    scaleField.value = minScaleValue + '%';
-  } else {
-    scaleField.value = parseInt(scaleField.value) - stepScaleValue + '%';
-  }
-});
-
-filterImagePreview.style.transform = 'scale('+ defaultScaleValue / 100 +')';
-
-function addScaleClass() {
-  filterImagePreview.style.transform = 'scale(' + parseInt(scaleField.value) / 100 + ')';
-}
-
-upScaleField.addEventListener('click', addScaleClass);
-downScaleField.addEventListener('click', addScaleClass);
+window.initializeScale(scaleControls, STEP_SCALE_VALUE, DEFAULT_SCALE_VALUE);

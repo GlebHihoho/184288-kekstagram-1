@@ -7,38 +7,77 @@ var uploadOverlay = document.querySelector('.upload-overlay');
 var uploadSelectImage = document.querySelector('.upload-image');
 var uploadFormCancel = document.querySelector('.upload-form-cancel');
 
-uploadFile.addEventListener('change', function() {
-  if (uploadFile.value !== '') {
-    uploadOverlay.classList.remove('invisible');
-    uploadSelectImage.classList.add('invisible');
-  }
-});
+var ENTER_KEY_KODE = 13;
+var ESCAPE_KEY_KODE = 27;
 
-uploadFormCancel.addEventListener('click', function() {
+function openForm() {
+  uploadOverlay.classList.remove('invisible');
+  uploadSelectImage.classList.add('invisible');
+  uploadOverlay.setAttribute('aria-hidden', false);
+  uploadFormCancel.setAttribute('aria-pressed', false);
+}
+
+function closeForm() {
   uploadOverlay.classList.add('invisible');
   uploadSelectImage.classList.remove('invisible');
+  uploadOverlay.setAttribute('aria-hidden', true);
+  uploadFormCancel.setAttribute('aria-pressed', true);
+}
+
+// обработчик на input type="file" открывает форму при загрузке фото
+
+uploadFile.addEventListener('change', function() {
+  if (uploadFile.value) {
+    openForm();
+  }
+
+  document.addEventListener('keydown', function(event) {
+    if (event.keyCode === ESCAPE_KEY_KODE) {
+      closeForm();
+    }
+  })
+});
+
+//  обработчик на "крестике" .upload-form-cancel закрывает форму при нажатии мыши
+//  использованиее Enter и Escape
+
+uploadFormCancel.addEventListener('click', function() {
+  closeForm();
+});
+
+uploadFormCancel.addEventListener('keydown', function(event) {
+  if (event.keyCode === ENTER_KEY_KODE) {
+    closeForm();
+  }
 });
 
 //  Реализуем применение фильтров к изображению
 
 var filterImagePreview = document.querySelector('.filter-image-preview');
 var uploadFilterControls = document.querySelector('.upload-filter-controls');
-var filterInput = uploadFilterControls.querySelectorAll('input');
 
-function filterChange() {
-  for (var i = 0; i < filterInput.length; i++) {
-    if (filterInput[i].checked) {
-      var filterName = filterInput[i].value;
-    }
+uploadFilterControls.addEventListener('keydown', function(event) {
+  var btn = event.target;
+  var idInput = btn.getAttribute('for');
+  var input = document.querySelector('#' + idInput);
+
+  if (input.hasAttribute('checked')) {
+    input.removeAttribute('checked');
   }
 
-  filterImagePreview.removeAttribute('class');
-  filterImagePreview.classList.add('filter-' + filterName);
-}
+  if (event.keyCode === ENTER_KEY_KODE) {
+    input.setAttribute('checked', 'checked');
+    filterImagePreview.removeAttribute('class');
+    filterImagePreview.classList.add('filter-' + input.value);
+  }
+});
 
-for (var i = 0; i < filterInput.length; i++) {
-  filterInput[i].addEventListener('change', filterChange);
-}
+uploadFilterControls.addEventListener('click', function(event) {
+  var target = event.target;
+
+  filterImagePreview.removeAttribute('class');
+  filterImagePreview.classList.add('filter-' + target.value);
+});
 
 // Реализем изменение масштаба изображения
 

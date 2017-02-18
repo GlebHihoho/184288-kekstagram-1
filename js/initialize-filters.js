@@ -3,7 +3,8 @@
 // модуль initializeFilters отвечает за применение фильтров к изображению:
 // выбор фильтра и отмену предыдущего, применение фильтра к изображению
 
-window.initializeFilters = function() {
+(function() {
+
   var filterImagePreview = document.querySelector('.filter-image-preview');
   var uploadFilterControls = document.querySelector('.upload-filter-controls');
   var ENTER_KEY_KODE = 13;
@@ -35,4 +36,5 @@ window.initializeFilters = function() {
     filterImagePreview.removeAttribute('class');
     filterImagePreview.classList.add('filter-' + event.target.value);
   });
-}
+
+})();

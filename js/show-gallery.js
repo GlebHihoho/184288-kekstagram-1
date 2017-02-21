@@ -1,6 +1,7 @@
 'use strict';
 
 window.showGallery = function(evt) {
+
   var galleryOverlay        = document.querySelector('.gallery-overlay');
   var galleryOverlayClose   = galleryOverlay.querySelector('.gallery-overlay-close');
   var galleryImg            = galleryOverlay.querySelector('.gallery-overlay-image');

@@ -4,6 +4,7 @@
 // выбор фильтра и отмену предыдущего, применение фильтра к изображению
 
 (function() {
+
   var pictureElement       = document.querySelector('.filter-image-preview');
   var uploadFilterControls = document.querySelector('.upload-filter-controls');
 
@@ -29,4 +30,5 @@
   };
 
   initializeFilters(uploadFilterControls, applyFilter);
+
 })();

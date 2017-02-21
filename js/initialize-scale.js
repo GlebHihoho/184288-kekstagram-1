@@ -1,6 +1,7 @@
 'use strict';
 
 (function() {
+
   var scaleElement = document.querySelector('.upload-resize-controls');
   var pictureElement = document.querySelector('.filter-image-preview');
 
@@ -30,4 +31,5 @@
   };
 
   initializeScale(scaleElement, adjustScale);
+
 })();

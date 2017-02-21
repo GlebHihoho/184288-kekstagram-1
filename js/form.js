@@ -4,12 +4,12 @@
 
 (function() {
 
-  var uploadFile = document.querySelector('#upload-file');
-  var uploadOverlay = document.querySelector('.upload-overlay');
+  var uploadFile        = document.querySelector('#upload-file');
+  var uploadOverlay     = document.querySelector('.upload-overlay');
   var uploadSelectImage = document.querySelector('.upload-image');
-  var uploadFormCancel = document.querySelector('.upload-form-cancel');
+  var uploadFormCancel  = document.querySelector('.upload-form-cancel');
 
-  var ENTER_KEY_KODE = 13;
+  var ENTER_KEY_KODE  = 13;
   var ESCAPE_KEY_KODE = 27;
 
   function openForm() {

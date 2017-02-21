@@ -24,6 +24,10 @@ body {
   color: #ffe753;
 }
 
+a {
+  cursor: pointer;
+}
+
 .invisible {
   display: none;
 }

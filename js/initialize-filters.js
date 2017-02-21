@@ -4,8 +4,9 @@
 // выбор фильтра и отмену предыдущего, применение фильтра к изображению
 
 (function() {
-  var pictureElement = document.querySelector('.filter-image-preview');
+  var pictureElement       = document.querySelector('.filter-image-preview');
   var uploadFilterControls = document.querySelector('.upload-filter-controls');
+
   var ENTER_KEY_KODE = 13;
 
   var applyFilter = function(event) {

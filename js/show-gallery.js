@@ -1,8 +1,8 @@
 'use strict';
 
-(function() {
+window.showGallery = (function() {
 
-  window.showGallery = function(evt) {
+  return function(evt) {
 
     var galleryOverlay        = document.querySelector('.gallery-overlay');
     var galleryOverlayClose   = galleryOverlay.querySelector('.gallery-overlay-close');
@@ -39,6 +39,7 @@
         galleryOverlay.classList.add('invisible');
       }
     })
+
   };
 
 })();

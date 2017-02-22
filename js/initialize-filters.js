@@ -3,9 +3,9 @@
 // модуль initializeFilters отвечает за применение фильтров к изображению:
 // выбор фильтра и отмену предыдущего, применение фильтра к изображению
 
-(function() {
+window.initializeFilters = (function() {
 
-  window.initializeFilters = function(uploadFilterControls, applyFilter) {
+  return function(uploadFilterControls, applyFilter) {
     var ENTER_KEY_KODE = 13;
 
     uploadFilterControls.addEventListener('change', function(event) {

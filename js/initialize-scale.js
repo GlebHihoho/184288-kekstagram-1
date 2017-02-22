@@ -1,8 +1,8 @@
 'use strict';
 
-(function() {
+window.initializeScale = (function() {
 
-  window.initializeScale = function(scaleElement, adjustScale) {
+  return function(scaleElement, adjustScale) {
     var scaleField = scaleElement.querySelector('[type="text"]');
 
     var DEFAULT_SCALE_VALUE = 50;

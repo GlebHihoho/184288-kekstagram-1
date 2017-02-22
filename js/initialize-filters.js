@@ -5,17 +5,9 @@
 
 (function() {
 
-  var pictureElement       = document.querySelector('.filter-image-preview');
-  var uploadFilterControls = document.querySelector('.upload-filter-controls');
+  window.initializeFilters = function(uploadFilterControls, applyFilter) {
+    var ENTER_KEY_KODE = 13;
 
-  var ENTER_KEY_KODE = 13;
-
-  var applyFilter = function(event) {
-    pictureElement.removeAttribute('class');
-    pictureElement.classList.add('filter-' + event);
-  };
-
-  var initializeFilters = function(uploadFilterControls, applyFilter) {
     uploadFilterControls.addEventListener('change', function(event) {
       var filterName = event.target.value;
       applyFilter(filterName);
@@ -28,7 +20,5 @@
       }
     });
   };
-
-  initializeFilters(uploadFilterControls, applyFilter);
 
 })();

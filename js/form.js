@@ -53,4 +53,20 @@
     }
   });
 
+  var scaleElement         = document.querySelector('.upload-resize-controls');
+  var pictureElement       = document.querySelector('.filter-image-preview');
+  var uploadFilterControls = document.querySelector('.upload-filter-controls');
+
+  var adjustScale = function(scale) {
+    pictureElement.style.transform = 'scale(' + scale / 100 + ')';
+  };
+
+  var applyFilter = function(event) {
+    pictureElement.removeAttribute('class');
+    pictureElement.classList.add('filter-' + event);
+  };
+
+  window.initializeScale(scaleElement, adjustScale);
+  window.initializeFilters(uploadFilterControls, applyFilter);
+
 })();

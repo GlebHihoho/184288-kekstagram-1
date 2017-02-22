@@ -1,6 +1,7 @@
 'use strict';
 
 (function () {
+
   window.load = function(url, onLoad) {
     var xhr = new XMLHttpRequest();
 
@@ -14,4 +15,5 @@
     xhr.responseType = 'json';
     xhr.send();
   };
+
 })();

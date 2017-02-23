@@ -53,9 +53,10 @@
     }
   });
 
-  var scaleElement         = document.querySelector('.upload-resize-controls');
-  var pictureElement       = document.querySelector('.filter-image-preview');
-  var uploadFilterControls = document.querySelector('.upload-filter-controls');
+  var scaleElement           = document.querySelector('.upload-resize-controls');
+  var pictureElement         = document.querySelector('.filter-image-preview');
+  var uploadFilterControls   = document.querySelector('.upload-filter-controls');
+  var pictureContainer       = document.querySelector('.upload-form-preview');
 
   var adjustScale = function(scale) {
     pictureElement.style.transform = 'scale(' + scale / 100 + ')';
@@ -66,7 +67,11 @@
     pictureElement.classList.add('filter-' + event);
   };
 
+  var saturateControl = function(pixelInPercent) {
+    pictureContainer.style.filter = 'saturate(' + pixelInPercent + ')'
+  }
+
   window.initializeScale(scaleElement, adjustScale);
-  window.initializeFilters(uploadFilterControls, applyFilter);
+  window.initializeFilters(uploadFilterControls, applyFilter, saturateControl);
 
 })();

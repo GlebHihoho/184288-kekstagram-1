@@ -9,7 +9,7 @@
   var filtersInput      = filters.querySelectorAll('input');
 
   var ENTER_KEY_KODE = 13;
-  var URL            = 'https://intensive-javascript-server-myophkugvq.now.sh/kekstagram/data';
+  var URL            = '//up.htmlacademy.ru/assets/js_intensive/jsonp/pictures.js';
 
   window.load(URL, function(onLoad) {
     var pictures = onLoad;

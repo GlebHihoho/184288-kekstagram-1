@@ -9,7 +9,7 @@
   var filtersInput      = filters.querySelectorAll('input');
 
   var ENTER_KEY_KODE = 13;
-  var URL            = '//up.htmlacademy.ru/assets/js_intensive/jsonp/pictures.js';
+  var URL            = '//o0.github.io/assets/json/pictures.json';
 
   window.load(URL, function(onLoad) {
     var pictures = onLoad;
